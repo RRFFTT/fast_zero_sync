@@ -2,7 +2,7 @@ from http import HTTPStatus
 
 from fastapi.testclient import TestClient
 
-from fast_zero.app import app
+from fast_zero.app import app, exaula2
 
 
 def test_read_root_deve_retornar_ok_e_ola_mundo():
@@ -21,3 +21,4 @@ def test_retornohtml_deve_retornar_ok_e_o_codigo_html():
     response = client.get(url='/retornohtml')
 
     assert response.status_code == HTTPStatus.OK
+    assert response.text == exaula2()
